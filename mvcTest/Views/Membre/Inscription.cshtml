@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Inscription";
+}
+
+<div class="container">
+    <h2 style="text-align:center; margin-top:20px;"><i class="fa-solid fa-user-plus" style="margin-right: 20px"></i>@ViewBag.Message</h2>
+    <div style="margin: 0 auto; width:250px; height:3px; background-color:black"></div>
+    <form method="post" action="Profile" class="form-group">
+        <label id="nom">Nom : </label>
+        <input type="text" name="nom" id="nom" class="form-control" />
+        <label id="prenom">Prenom : </label>
+        <input type="text" name="prenom" id="prenom" class="form-control" />
+        <label id="email">Email : </label>
+        <input type="email" name="email" id="nom" class="form-control" />
+        <label id="pdw">mots de passe : </label>
+        <input type="password" name="pdw" id="pdw" class="form-control" />
+        <label id="pdwr">mots de passe : </label>
+        <input type="password" name="pdwr" id="pdwr" class="form-control" />
+        <button type="submit" class="btn btn-primary" style="margin-top:10px;">S'inscrire</button>
+    </form>
+    <p>Si vous avez deja un compte <a href="Connexion"> connectez vous ici</a></p>
+</div>
+

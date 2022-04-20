@@ -1,0 +1,70 @@
+﻿@using mvcTest.Models
+@{
+    ViewBag.Title = "Produit";
+    Produit produit = new Produit();
+    int nb = produit.afficheProduit().Count;
+
+}
+<h3 style="text-align:center; margin-top:20px;"><i class="fa-solid fa-cart-shopping" style="margin-right: 20px"></i>Les Produits</h3>
+<div style="margin: 0 auto; width:250px; height:3px; background-color:black"></div>
+<section class="py-5" style="display:flex; position:relative;">
+    <div class="container px-4 px-lg-5 mt-5" style="flex:6">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            @for (int i = 0; i < nb; i++)
+            {
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://stylosenligne.com/28264-large_default/stylo-plume-moyenne-cross-annee-du-rat-laque-bleu-or-23-cts.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center" id="data">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder" id="nomProduit">@produit.afficheProduit()[i].nom</h5>
+                                <h4 style="font-style:italic; font-size:12px" id="categoryProduit">@produit.afficheProduit()[i].category</h4>
+                                <!-- Product price-->
+                                <em id="prixProduit">@produit.afficheProduit()[i].prix.ToString() Ar</em>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" id="items" href="@produit.afficheProduit()[i].id.ToString()">Ajouter au panier</a></div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div style="flex:2; display:none;" id="commande">
+        <div id="contain-items">
+            <h5 class="commandeItems">Votre Commande : </h5>
+        </div>
+        <table style="font-size:11px">
+            <thead style="padding: 10px">
+                <tr>
+                    <th>Nom</th>
+                    <th >Category</th>
+                    <th style="margin-right:10px">Prix</th>
+                    <th style="margin-right:10px">Qte</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="nom" style="padding-right:20px; "></td>
+                    <td id="category" style="padding-right: 20px "></td>
+                    <td id="prix" style="padding-right: 20px "></td>
+                    <td id="qte" style="padding-right: 20px "></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p class="btn btn-outline-dark mt-auto" id="total"></p>
+        </div>
+        <form method="post" action="~/Membre/Inscription" class="form-group" id="form">
+            <input name="valeur1" id="valeur" type="hidden" value=""/>
+            <button type="submit" id="valider" class="btn btn-outline-dark mt-auto" style="margin-top:10px;">Valider</button>
+        </form>
+    </div>
+</section>
+
+

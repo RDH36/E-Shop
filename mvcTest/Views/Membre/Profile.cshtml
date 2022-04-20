@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>@ViewBag.Message , @Session["prenom"]</h2>
+
+<h2>Information</h2>
+<p>
+    <i class="fa-solid fa-user"></i> @Session["prenom"] @Session["nom"]
+</p>
+<p>
+    <i class="fa-solid fa-envelope"></i>  @Session["email"]
+</p>
+
+<p style="font-style:italic">Votre Commande a etait bien envoyer, vous allez recevoir un email de la facture Merci d'avoir choisi E-Shop</p>
+
